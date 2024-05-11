@@ -5,6 +5,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.login.LoginOverlay;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.TextField;
@@ -19,10 +20,14 @@ public class LoginView extends Composite<LoginOverlay> {
 		loginOverlay.setDescription("Вход в систему");
 		loginOverlay.setOpened(true);
 
+		loginOverlay.addForgotPasswordListener(event -> {
+			Notification.show("You faggot password?!");
+		});
+
 		loginOverlay.addLoginListener(event -> {
 			try {
 				authService.authenticate(event.getUsername(), event.getPassword());
-				UI.getCurrent().navigate(AdminView.class);
+				UI.getCurrent().navigate(HomeView.class);
 			} catch (AuthService.AuthExeption e) {
 				Notification.show("Ошибка");
 			}

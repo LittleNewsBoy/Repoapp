@@ -2,11 +2,10 @@ package com.myapp.app.data.service;
 
 import com.myapp.app.data.entity.Role;
 import com.myapp.app.data.entity.User;
-import com.myapp.app.view.AdminView;
-import com.myapp.app.view.TestView;
-import com.myapp.app.view.UserView;
+import com.myapp.app.view.*;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.router.RouteConfiguration;
+import com.vaadin.flow.server.VaadinSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +31,7 @@ public class AuthService {
 	public void authenticate(String username, String password) throws AuthExeption {
 		User user = userRepository.getByUsername(username);
 		if (user != null && user.chekPassword(password)){
+			VaadinSession.getCurrent().setAttribute(User.class, user);
 			createRoutes(user.getRole());
 		}else {
 			throw new AuthExeption();
@@ -48,9 +48,13 @@ public class AuthService {
 		var routes = new ArrayList<AuthorizedRoute>();
 		if (role.equals(Role.USER)){
 			routes.add(new AuthorizedRoute("user", "User", UserView.class));
+			routes.add(new AuthorizedRoute("home", "Home", HomeView.class));
+			routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
 		}else if (role.equals(Role.ADMIN)){
 			routes.add(new AuthorizedRoute("user", "User", UserView.class));
 			routes.add(new AuthorizedRoute("admin", "Admin", AdminView.class));
+			routes.add(new AuthorizedRoute("home", "Home", HomeView.class));
+			routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
 		}
 		return routes;
 	}
