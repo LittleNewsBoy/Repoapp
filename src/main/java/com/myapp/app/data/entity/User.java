@@ -1,11 +1,12 @@
 package com.myapp.app.data.entity;
 
 import com.myapp.app.data.AbstractEntity;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
 @Entity
+@Table(name = "\"user\"")
 public class User extends AbstractEntity {
 
 	private String username;
