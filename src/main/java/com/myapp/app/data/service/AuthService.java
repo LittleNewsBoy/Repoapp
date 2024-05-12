@@ -47,13 +47,15 @@ public class AuthService {
 	public List<AuthorizedRoute> getAuthorizedRoute(Role role){
 		var routes = new ArrayList<AuthorizedRoute>();
 		if (role.equals(Role.USER)){
-			routes.add(new AuthorizedRoute("user", "User", UserView.class));
 			routes.add(new AuthorizedRoute("home", "Home", HomeView.class));
+			routes.add(new AuthorizedRoute("user", "User", UserView.class));
+			routes.add(new AuthorizedRoute("form", "Form", FormView.class));
 			routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
 		}else if (role.equals(Role.ADMIN)){
-			routes.add(new AuthorizedRoute("user", "User", UserView.class));
-			routes.add(new AuthorizedRoute("admin", "Admin", AdminView.class));
 			routes.add(new AuthorizedRoute("home", "Home", HomeView.class));
+			routes.add(new AuthorizedRoute("admin", "Admin", AdminView.class));
+			routes.add(new AuthorizedRoute("user", "User", UserView.class));
+			routes.add(new AuthorizedRoute("form", "Form", FormView.class));
 			routes.add(new AuthorizedRoute("logout", "Logout", LogoutView.class));
 		}
 		return routes;

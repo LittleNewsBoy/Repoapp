@@ -40,14 +40,14 @@ public class TestView extends AppLayout {
 		var user = VaadinSession.getCurrent().getAttribute(User.class);
 		if (user.getRole().equals(Role.USER)){
 			sideNav.addItem(
-					new SideNavItem("User", UserView.class, VaadinIcon.DASHBOARD.create()),
 					new SideNavItem("Home", HomeView.class, VaadinIcon.CHART.create()),
+					new SideNavItem("User", UserView.class, VaadinIcon.DASHBOARD.create()),
 					new SideNavItem("Logout", LogoutView.class, VaadinIcon.LIST.create()));
 		}else {
 			sideNav.addItem(
-					new SideNavItem("User", UserView.class, VaadinIcon.DASHBOARD.create()),
-					new SideNavItem("Admin", AdminView.class, VaadinIcon.CART.create()),
 					new SideNavItem("Home", HomeView.class, VaadinIcon.CHART.create()),
+					new SideNavItem("Admin", AdminView.class, VaadinIcon.CART.create()),
+					new SideNavItem("User", UserView.class, VaadinIcon.DASHBOARD.create()),
 					new SideNavItem("Logout", LogoutView.class, VaadinIcon.LIST.create()));
 		}
 		return sideNav;

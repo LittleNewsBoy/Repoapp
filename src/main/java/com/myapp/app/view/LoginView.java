@@ -20,6 +20,7 @@ public class LoginView extends Composite<LoginOverlay> {
 		loginOverlay.setDescription("Вход в систему");
 		loginOverlay.setOpened(true);
 
+
 		loginOverlay.addForgotPasswordListener(event -> {
 			Notification.show("You faggot password?!");
 		});
@@ -30,6 +31,7 @@ public class LoginView extends Composite<LoginOverlay> {
 				UI.getCurrent().navigate(HomeView.class);
 			} catch (AuthService.AuthExeption e) {
 				Notification.show("Ошибка");
+				UI.getCurrent().close();
 			}
 
 		});
