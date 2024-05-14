@@ -1,6 +1,5 @@
 package com.myapp.app.view;
 
-import com.myapp.app.data.entity.Role;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.checkbox.Checkbox;
@@ -27,17 +26,17 @@ public class FormView extends VerticalLayout {
 		startDatePicker.setValue(LocalDate.now(ZoneId.systemDefault()));
 
 		//Выбор участка
-		ComboBox<Role> comboBox1Layer1 = new ComboBox<>("Участок:");
-		comboBox1Layer1.setItems(Role.ADMIN, Role.USER);
-
-		//Выбор изделия
-		ComboBox<Role> comboBox2Layer1 = new ComboBox<>("Изделие:");
-		comboBox2Layer1.setItems(Role.ADMIN, Role.USER);
-
-
-		//Выбор децимального номера !!!(Надо продумать выбор децимального на основании изделия)!!!
-		ComboBox<Role> comboBox2Layer2 = new ComboBox<>("Децимальный номер:");
-		comboBox2Layer2.setItems(Role.ADMIN, Role.USER);
+//		ComboBox<Role> comboBox1Layer1 = new ComboBox<>("Участок:");
+//		comboBox1Layer1.setItems(Role.ADMIN, Role.USER);
+//
+//		//Выбор изделия
+//		ComboBox<Role> comboBox2Layer1 = new ComboBox<>("Изделие:");
+//		comboBox2Layer1.setItems(Role.ADMIN, Role.USER);
+//
+//
+//		//Выбор децимального номера !!!(Надо продумать выбор децимального на основании изделия)!!!
+//		ComboBox<Role> comboBox2Layer2 = new ComboBox<>("Децимальный номер:");
+//		comboBox2Layer2.setItems(Role.ADMIN, Role.USER);
 
 
 		//Выбор даты создания АОН
@@ -93,47 +92,47 @@ public class FormView extends VerticalLayout {
 		primaryButton.addThemeVariants(ButtonVariant.LUMO_LARGE);
 
 		//Настройка слоев
-		HorizontalLayout horizontalLayout1Layer = new HorizontalLayout(startDatePicker, comboBox1Layer1,textFieldLayer1);
-		HorizontalLayout horizontalLayout2Layer = new HorizontalLayout(comboBox2Layer1,comboBox2Layer2,textFieldLayer2);
-		HorizontalLayout horizontalLayout3Layer = new HorizontalLayout(checkbox1,checkbox2,checkbox3);
-		HorizontalLayout horizontalLayout4Layer = new HorizontalLayout(textArea1, textArea2);
-		HorizontalLayout horizontalLayout5Layer = new HorizontalLayout(primaryButton);
+//		HorizontalLayout horizontalLayout1Layer = new HorizontalLayout(startDatePicker, comboBox1Layer1,textFieldLayer1);
+//		HorizontalLayout horizontalLayout2Layer = new HorizontalLayout(comboBox2Layer1,comboBox2Layer2,textFieldLayer2);
+//		HorizontalLayout horizontalLayout3Layer = new HorizontalLayout(checkbox1,checkbox2,checkbox3);
+//		HorizontalLayout horizontalLayout4Layer = new HorizontalLayout(textArea1, textArea2);
+//		HorizontalLayout horizontalLayout5Layer = new HorizontalLayout(primaryButton);
+//
+//		horizontalLayout1Layer.setFlexGrow(1,startDatePicker);
+//		horizontalLayout1Layer.setFlexGrow(1,comboBox1Layer1);
+//		horizontalLayout1Layer.setFlexGrow(1,textFieldLayer1);
+//		horizontalLayout1Layer.setJustifyContentMode(JustifyContentMode.AROUND);
+//		horizontalLayout1Layer.setWidthFull();
+//		horizontalLayout1Layer.setAlignItems(Alignment.BASELINE);
+//
+//		horizontalLayout2Layer.setFlexGrow(1,comboBox2Layer1);
+//		horizontalLayout2Layer.setFlexGrow(1,comboBox2Layer2);
+//		horizontalLayout2Layer.setFlexGrow(1,textFieldLayer2);
+//		horizontalLayout2Layer.setJustifyContentMode(JustifyContentMode.AROUND);
+//		horizontalLayout2Layer.setWidthFull();
+//		horizontalLayout2Layer.setAlignItems(Alignment.BASELINE);
 
-		horizontalLayout1Layer.setFlexGrow(1,startDatePicker);
-		horizontalLayout1Layer.setFlexGrow(1,comboBox1Layer1);
-		horizontalLayout1Layer.setFlexGrow(1,textFieldLayer1);
-		horizontalLayout1Layer.setJustifyContentMode(JustifyContentMode.AROUND);
-		horizontalLayout1Layer.setWidthFull();
-		horizontalLayout1Layer.setAlignItems(Alignment.BASELINE);
-
-		horizontalLayout2Layer.setFlexGrow(1,comboBox2Layer1);
-		horizontalLayout2Layer.setFlexGrow(1,comboBox2Layer2);
-		horizontalLayout2Layer.setFlexGrow(1,textFieldLayer2);
-		horizontalLayout2Layer.setJustifyContentMode(JustifyContentMode.AROUND);
-		horizontalLayout2Layer.setWidthFull();
-		horizontalLayout2Layer.setAlignItems(Alignment.BASELINE);
-
-		horizontalLayout3Layer.setFlexGrow(1,checkbox1);
-		horizontalLayout3Layer.setFlexGrow(1,checkbox2);
-		horizontalLayout3Layer.setFlexGrow(1,checkbox3);
-		horizontalLayout3Layer.setJustifyContentMode(JustifyContentMode.AROUND);
-		horizontalLayout3Layer.setWidthFull();
-		horizontalLayout3Layer.setAlignItems(Alignment.BASELINE);
-
-		horizontalLayout4Layer.setFlexGrow(1,textArea1);
-		horizontalLayout4Layer.setFlexGrow(1,textArea2);
-		horizontalLayout4Layer.setJustifyContentMode(JustifyContentMode.AROUND);
-		horizontalLayout4Layer.setWidthFull();
-		horizontalLayout4Layer.setAlignItems(Alignment.BASELINE);
-
-		horizontalLayout5Layer.setSpacing(false);
-		horizontalLayout5Layer.setFlexGrow(1, primaryButton);
-		horizontalLayout5Layer.setWidthFull();
-		horizontalLayout5Layer.setJustifyContentMode(JustifyContentMode.AROUND);
-
-		VerticalLayout verticalLayout = new VerticalLayout(horizontalLayout1Layer,horizontalLayout2Layer,
-				horizontalLayout3Layer, horizontalLayout4Layer, horizontalLayout5Layer);
-		add(verticalLayout);
+//		horizontalLayout3Layer.setFlexGrow(1,checkbox1);
+//		horizontalLayout3Layer.setFlexGrow(1,checkbox2);
+//		horizontalLayout3Layer.setFlexGrow(1,checkbox3);
+//		horizontalLayout3Layer.setJustifyContentMode(JustifyContentMode.AROUND);
+//		horizontalLayout3Layer.setWidthFull();
+//		horizontalLayout3Layer.setAlignItems(Alignment.BASELINE);
+//
+//		horizontalLayout4Layer.setFlexGrow(1,textArea1);
+//		horizontalLayout4Layer.setFlexGrow(1,textArea2);
+//		horizontalLayout4Layer.setJustifyContentMode(JustifyContentMode.AROUND);
+//		horizontalLayout4Layer.setWidthFull();
+//		horizontalLayout4Layer.setAlignItems(Alignment.BASELINE);
+//
+//		horizontalLayout5Layer.setSpacing(false);
+//		horizontalLayout5Layer.setFlexGrow(1, primaryButton);
+//		horizontalLayout5Layer.setWidthFull();
+//		horizontalLayout5Layer.setJustifyContentMode(JustifyContentMode.AROUND);
+//
+//		VerticalLayout verticalLayout = new VerticalLayout(horizontalLayout1Layer,horizontalLayout2Layer,
+//				horizontalLayout3Layer, horizontalLayout4Layer, horizontalLayout5Layer);
+//		add(verticalLayout);
 
 	}
 }

@@ -1,16 +1,43 @@
 package com.myapp.app.data.service;
 
-import com.myapp.app.data.entity.Role;
-import com.myapp.app.data.entity.User;
+import com.myapp.app.data.entity.AppUser;
+import com.myapp.app.data.repo.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserService {
-	ResponseEntity<Object> addUser(User user);
-	List<User> findUser();
-	User getUserByRole(Role role);
-	User saveUser(User user);
-	User updateUser(User user);
+@Service
+public class UserService implements UserDetailsService {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Optional<AppUser> user = userRepository.findByUsername(username);
+		if (user.isPresent()){
+			var userObj = user.get();
+			return User.builder()
+					.username(userObj.getUsername())
+					.password(userObj.getPassword())
+					.roles(getRoles(userObj))
+					.build();
+		}else {
+			throw new UsernameNotFoundException(username);
+		}
+	}
+
+	private String[] getRoles(AppUser user) {
+		if (user.getRole() == null){
+			return new String[]{"USER"};
+		}
+		return user.getRole().split(",");
+	}
 }
