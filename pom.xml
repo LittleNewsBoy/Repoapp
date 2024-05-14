@@ -35,13 +35,50 @@
             <version>3.2.5</version>
         </dependency>
 
-<!--        Для использования внутреннего источника дынных (без БД) -->
+<!--&lt;!&ndash;        Для использования внутреннего источника дынных (без БД) &ndash;&gt;-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--            <version>2.2.224</version>-->
+<!--&lt;!&ndash;            <scope>test</scope>&ndash;&gt;-->
+<!--        </dependency>-->
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>2.2.224</version>
-<!--            <scope>test</scope>-->
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>6.2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>6.2.4</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4-runtime</artifactId>
+            <version>4.13.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>6.1.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>3.2.0</version>
         </dependency>
 
         <dependency>
@@ -50,6 +87,11 @@
             <version>6.2.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-spring-security</artifactId>
+            <version>4.0.0</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>

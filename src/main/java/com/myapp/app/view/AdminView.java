@@ -2,6 +2,7 @@ package com.myapp.app.view;
 
 import com.myapp.app.data.entity.Role;
 import com.myapp.app.data.entity.User;
+import com.myapp.app.data.service.UserRepository;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -10,7 +11,10 @@ import java.util.ArrayList;
 
 
 public class AdminView extends VerticalLayout {
-	public AdminView() {
+	private final UserRepository userRepository;
+	public AdminView(UserRepository userRepository) {
+		this.userRepository = userRepository;
+
 		//Создание таблицы со всеми пользователями:
 		//____________________________________________
 		Grid<User> grid = new Grid<>(User.class, false);

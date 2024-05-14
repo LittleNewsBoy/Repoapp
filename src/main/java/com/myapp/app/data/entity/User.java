@@ -2,16 +2,26 @@ package com.myapp.app.data.entity;
 
 import com.myapp.app.data.AbstractEntity;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
+@Setter
+@Getter
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "AppUser")
 public class User extends AbstractEntity {
 
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@Column(name = "AppUsername")
 	private String username;
+	//@Column(name = "AppPasswordSalt")
 	private String passwordSalt;
+	//@Column(name = "AppPasswordHash")
 	private String passwordHash;
+	//@Column(name = "AppRole")
 	private Role role;
 
 
@@ -29,35 +39,4 @@ public class User extends AbstractEntity {
 		return DigestUtils.sha1Hex(password + passwordSalt).equals(passwordHash);
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPasswordSalt() {
-		return passwordSalt;
-	}
-
-	public void setPasswordSalt(String passwordSalt) {
-		this.passwordSalt = passwordSalt;
-	}
-
-	public String getPasswordHash() {
-		return passwordHash;
-	}
-
-	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
 }

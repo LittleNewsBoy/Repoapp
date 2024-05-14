@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class AuthService {
 
-	public class AuthExeption extends Exception{
+	public static class AuthException extends Exception{
 
 	}
 
@@ -28,18 +28,18 @@ public class AuthService {
 		this.userRepository = userRepository;
 	}
 
-	public void authenticate(String username, String password) throws AuthExeption {
+	public void authenticate(String username, String password) throws AuthException {
 		User user = userRepository.getByUsername(username);
 		if (user != null && user.chekPassword(password)){
 			VaadinSession.getCurrent().setAttribute(User.class, user);
 			createRoutes(user.getRole());
 		}else {
-			throw new AuthExeption();
+			throw new AuthException();
 		}
 	}
 
 	private void createRoutes(Role role) {
-		getAuthorizedRoute(role).stream()
+		getAuthorizedRoute(role)
 				.forEach(route ->
 						RouteConfiguration.forSessionScope().setRoute(
 								route.route, route.view, TestView.class));

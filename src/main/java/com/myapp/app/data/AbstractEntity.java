@@ -3,7 +3,9 @@ package com.myapp.app.data;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
+import lombok.Setter;
 
+@Setter
 @MappedSuperclass
 public abstract class AbstractEntity {
     private Integer id;
@@ -14,11 +16,7 @@ public abstract class AbstractEntity {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
+	@Override
     public int hashCode() {
         if (id != null) {
             return id.hashCode();
@@ -28,12 +26,11 @@ public abstract class AbstractEntity {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof AbstractEntity)) {
+        if (!(obj instanceof AbstractEntity other)) {
             return false; // null or other class
         }
-        AbstractEntity other = (AbstractEntity) obj;
 
-        if (id != null) {
+		if (id != null) {
             return id.equals(other.id);
         }
         return super.equals(other);
