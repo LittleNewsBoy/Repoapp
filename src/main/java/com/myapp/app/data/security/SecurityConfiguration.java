@@ -1,6 +1,7 @@
 package com.myapp.app.data.security;
 
 import com.myapp.app.data.service.UserService;
+import com.vaadin.flow.spring.security.VaadinWebSecurity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,24 +22,26 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration {
+public class SecurityConfiguration{
 
 	@Autowired
 	private UserService userService;
+
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		return httpSecurity
 				.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(registry -> {
-					registry.requestMatchers("/home", "/register/**").permitAll();
-//					registry.requestMatchers("/admin/**").hasRole("ADMIN");
-//					registry.requestMatchers("/user/**").hasRole("USER");
+					registry.requestMatchers("/register/**").permitAll();
+					registry.requestMatchers("/admin/**").hasRole("ADMIN");
+					registry.requestMatchers("/user/**").hasRole("USER");
 					registry.anyRequest().authenticated();
 				})
 				.formLogin((AbstractAuthenticationFilterConfigurer::permitAll))
 				.build();
 	}
+
 
 	@Bean
 	public UserDetailsService userDetailsService(){

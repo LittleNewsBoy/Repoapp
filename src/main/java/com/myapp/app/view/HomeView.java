@@ -1,20 +1,28 @@
 package com.myapp.app.view;
 
-import com.myapp.app.data.entity.AppUser;
+//import com.myapp.app.data.entity.AppUser;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.auth.AnonymousAllowed;
+
 
 
 import java.util.ArrayList;
-
+//@Route("home")
+//@AnonymousAllowed
 public class HomeView extends VerticalLayout {
 
 	public HomeView() {
 
+		add(
+				new H1("Hello")
+		);
 		//Создание таблицы со всеми созданными АОНами (добавить функцию просмотра АОН):
 		//____________________________________________
 //		Grid<AppUser> grid = new Grid<>(AppUser.class, false);

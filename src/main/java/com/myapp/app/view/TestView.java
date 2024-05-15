@@ -1,7 +1,7 @@
 package com.myapp.app.view;
 
-import com.myapp.app.data.entity.AppUser;
-import com.myapp.app.data.repo.UserRepository;
+//import com.myapp.app.data.entity.AppUser;
+//import com.myapp.app.data.repo.UserRepository;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;
@@ -19,8 +19,8 @@ public class TestView extends AppLayout {
 
 
 
-	@Autowired
-	private UserRepository userRepository;
+//	@Autowired
+//	private UserRepository userRepository;
 
 	public TestView() {
 //		DrawerToggle toggle = new DrawerToggle();

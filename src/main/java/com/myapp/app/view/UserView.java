@@ -1,6 +1,6 @@
 package com.myapp.app.view;
 
-import com.myapp.app.data.entity.AppUser;
+//import com.myapp.app.data.entity.AppUser;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.datepicker.DatePicker;
